@@ -10,14 +10,14 @@ python app.py
 
 This opens a single unified application with three tabs:
 
-1. **Single Algorithm View** - Test individual algorithms (Dijkstra, A*, Bidirectional)
+1. **Single Algorithm View** - Test individual algorithms (Dijkstra, A*, Greedy Best-First Search)
 2. **Triple Comparison View** - Watch all three algorithms run side-by-side simultaneously
 3. **Batch Testing & Analysis** - Run large-scale tests and generate statistics/graphs
 
 ## Features
 
 ### Tab 1: Single Algorithm View
-- Select algorithm: Dijkstra, A*, or Bidirectional Search
+- Select algorithm: Dijkstra, A*, or Greedy Best-First Search
 - Drag-and-drop start/end points
 - Adjust obstacle density (0-70%)
 - Real-time visualization with color-coded cells
@@ -75,7 +75,7 @@ csee/
 │   ├── algorithms/              # Three pathfinding algorithms
 │   │   ├── dijkstra.py         # Dijkstra's Algorithm
 │   │   ├── astar.py            # A* with Manhattan heuristic
-│   │   └── bidirectional.py   # Bidirectional Search
+│   │   └── greedy.py           # Greedy Best-First Search
 │   │
 │   ├── utils/                   # Testing and utilities
 │   │   ├── batch_tester.py     # Automated testing framework
@@ -106,11 +106,11 @@ csee/
 - **Complexity**: Better than Dijkstra with good heuristic
 - **Role**: Industry standard showing heuristic benefit
 
-### 3. Bidirectional Search
-- **Approach**: Searches from both start and end simultaneously
-- **Optimization**: Meets in the middle for efficiency
-- **Complexity**: Reduces effective search space
-- **Role**: Modern approach showing dual-source optimization
+### 3. Greedy Best-First Search
+- **Approach**: Uses only heuristic guidance (h(n)), ignores path cost
+- **Characteristic**: Fast but potentially suboptimal
+- **Complexity**: Fast but NOT guaranteed optimal path
+- **Role**: Demonstrates trade-off between speed and optimality
 
 All algorithms use **4-directional movement only** (up, down, left, right) for fair comparison.
 
@@ -143,7 +143,7 @@ All algorithms use **4-directional movement only** (up, down, left, right) for f
 ## Data Collection
 
 Batch tests generate CSV files with columns:
-- `algorithm`: Dijkstra, A*, or Bidirectional
+- `algorithm`: Dijkstra, A*, or Greedy
 - `map_size`: Grid dimensions (50×50 to 800×800)
 - `obstacle_density`: 10%, 25%, 40%, 55%, or 70%
 - `map_type`: random, clustered, maze, or mixed
@@ -207,7 +207,7 @@ This application supports the complete research workflow:
 
 ## Research Question
 
-"To what extent do the pathfinding algorithms Dijkstra's Algorithm, A* (A-star), and Bidirectional Search differ in computational efficiency and path optimality when navigating 2D grid-based maps with varying obstacle densities?"
+"To what extent do different search strategies (uninformed Dijkstra, greedy heuristic-only, and balanced A*) trade computational efficiency for path optimality in grid-based pathfinding?"
 
 ---
 
