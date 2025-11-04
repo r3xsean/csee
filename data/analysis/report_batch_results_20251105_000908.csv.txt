@@ -1,0 +1,66 @@
+================================================================================
+STATISTICAL ANALYSIS REPORT
+Pathfinding Algorithm Comparison
+================================================================================
+
+SUMMARY STATISTICS
+--------------------------------------------------------------------------------
+              nodes_explored                     path_length                  time_ms                    
+                        mean       std min   max        mean     std min  max    mean    std  min     max
+algorithm                                                                                                
+A*                  1280.025  2291.653   1  8154       41.25  68.701   0  199   3.035  5.537  0.0  22.027
+Bidirectional       1721.100  2660.235   2  8838       41.25  68.701   0  199   3.782  6.771  0.0  49.105
+Dijkstra            1776.858  2876.907   1  9071       41.25  68.701   0  199   3.379  5.661  0.0  19.611
+
+
+ANOVA TEST - TIME_MS
+--------------------------------------------------------------------------------
+F-statistic: 0.4642
+p-value: 0.629043
+Significant: NO
+Effect size (η²): 0.0026 (negligible)
+
+POST-HOC TESTS - TIME_MS
+--------------------------------------------------------------------------------
+               comparison  mean_diff  percent_diff  t_statistic  p_value  significant  cohens_d effect_size
+           Dijkstra vs A*   0.344177     11.342104     0.476113 0.634431        False  0.061724  negligible
+Dijkstra vs Bidirectional  -0.403269    -10.662982    -0.500549 0.617151        False -0.064892  negligible
+      A* vs Bidirectional  -0.747446    -19.763491    -0.936092 0.350175        False -0.121356  negligible
+
+
+ANOVA TEST - NODES_EXPLORED
+--------------------------------------------------------------------------------
+F-statistic: 1.2943
+p-value: 0.275362
+Significant: NO
+Effect size (η²): 0.0072 (negligible)
+
+POST-HOC TESTS - NODES_EXPLORED
+--------------------------------------------------------------------------------
+               comparison   mean_diff  percent_diff  t_statistic  p_value  significant  cohens_d effect_size
+           Dijkstra vs A*  496.833333     38.814346     1.479722 0.140270        False  0.191832  negligible
+Dijkstra vs Bidirectional   55.758333      3.239692     0.155883 0.876258        False  0.020209  negligible
+      A* vs Bidirectional -441.075000    -25.627506    -1.376092 0.170087        False -0.178398  negligible
+
+
+ANOVA TEST - PATH_LENGTH
+--------------------------------------------------------------------------------
+F-statistic: 0.0000
+p-value: 1.000000
+Significant: NO
+Effect size (η²): 0.0000 (negligible)
+
+POST-HOC TESTS - PATH_LENGTH
+--------------------------------------------------------------------------------
+               comparison  mean_diff  percent_diff  t_statistic  p_value  significant  cohens_d effect_size
+           Dijkstra vs A*        0.0           0.0          0.0      1.0        False       0.0  negligible
+Dijkstra vs Bidirectional        0.0           0.0          0.0      1.0        False       0.0  negligible
+      A* vs Bidirectional        0.0           0.0          0.0      1.0        False       0.0  negligible
+
+
+CONFIDENCE INTERVALS (95%)
+--------------------------------------------------------------------------------
+    algorithm     mean  std_error  ci_lower  ci_upper  ci_range
+     Dijkstra 3.378685   0.516761  2.355447  4.401924  2.046476
+           A* 3.034508   0.505498  2.033573  4.035444  2.001871
+Bidirectional 3.781954   0.618090  2.558075  5.005834  2.447760
